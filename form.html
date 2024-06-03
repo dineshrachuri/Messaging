@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- Your custom script -->
+    <script type="text/javascript" charset="utf-8">
+        function runGenesysScript() {
+            (function (g, e, n, es, ys) {
+                g['_genesysJs'] = e;
+                g[e] = g[e] || function () {
+                    (g[e].q = g[e].q || []).push(arguments)
+                };
+                g[e].t = 1 * new Date();
+                g[e].c = es;
+                ys = document.createElement('script');
+                ys.async = 1;
+                ys.src = n;
+                ys.charset = 'utf-8';
+                document.head.appendChild(ys);
+            })(window, 'Genesys', 'https://apps.aps1.pure.cloud/genesys-bootstrap/genesys.min.js', {
+                environment: 'prod-aps1',
+                deploymentId: '40577bd8-52ab-4304-87c4-12f9ea2451a3'
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Attach click event listener to the submit button
+            document.getElementById("submitButton").addEventListener("click", function (event) {
+                // Prevent default form submission
+                event.preventDefault();
+                // Run the Genesys script
+                runGenesysScript();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <form id="genesysForm" style="width: 300px;">
+            <h2 class="text-center">Contact Form</h2>
+            <br>
+            <div class="form-group">
+                <label for="InputName">Name</label>
+                <input type="text" class="form-control" id="InputName" placeholder="Enter your name">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter your email">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="Inputphonenumber">Phone Number</label>
+                <input type="tel" class="form-control" id="Inputphonenumber" placeholder="Enter your phone number">
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="reasonInput">Reason</label>
+                <input type="text" class="form-control" id="reasonInput" placeholder="Enter the reason for contact">
+            </div>
+            <br>
+            <button id="submitButton" type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
